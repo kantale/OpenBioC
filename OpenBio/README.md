@@ -64,7 +64,7 @@ pip install pybtex
 pip install mistune
 pip install requests
 pip install social-auth-app-django
-pip install djangorestframework
+pip install djangorestframework==3.11.0
 pip install bashlex
 pip install networklex
 conda install ansi2html
