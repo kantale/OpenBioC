@@ -93,7 +93,7 @@ pip install cwlref-runner
 
 ```
 cd app/static/app
-python3 get_bash_commands.py | bash
+python get_bash_commands.py | bash
 ```
 
 * Run
