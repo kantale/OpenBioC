@@ -63,6 +63,11 @@ pip install simplejson
 pip install pybtex
 pip install mistune
 pip install requests
+pip install social-auth-app-django
+pip install djangorestframework==3.11.0
+pip install bashlex
+pip install networklex
+conda install ansi2html
 ```
 
 * Build database
@@ -82,6 +87,13 @@ pip install flask
 ```
 pip install cwltool
 pip install cwlref-runner
+```
+
+* Download static files
+
+```
+cd app/static/app
+python get_bash_commands.py | bash
 ```
 
 * Run
