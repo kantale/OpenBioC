@@ -48,6 +48,13 @@ def detect_circles(graph, start, end):
             fringe.append((next_state, path+[next_state]))
 
 bash_patterns = {
+    'check_envsanity': r'''
+if [ -z ${OBC_TOOL_PATH+x} ] || [ -z ${OBC_DATA_PATH+x} ] || [ -z ${OBC_WORK_PATH+x} ]; then
+    echo "Environment is not sane. Please make sure the" 
+    echo "OBC_TOOL_PATH, OBC_DATA_PATH and OBC_WORK_PATH variables have been set."
+    exit 1
+fi
+    ''',
     'parse_json' : r'''
 function obc_parse_json()
 {
@@ -1931,6 +1938,7 @@ class LocalExecutor(BaseExecutor):
             f.write(self.workflow.get_token_set_bash_commands())
 
             #Insert essential functions
+            f.write(bash_patterns['check_envsanity'])
             f.write(bash_patterns['parse_json'])
             f.write(bash_patterns['update_server_status'])
             f.write(bash_patterns['base64_decode'])
